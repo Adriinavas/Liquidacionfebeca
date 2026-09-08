@@ -122,20 +122,25 @@ header h1{font-size:var(--font-size-page-title);letter-spacing:.3px;color:#fff}
 .gcard .gfoot{margin-top:auto;display:flex;flex-direction:column;gap:6px}
 .gcard .gfoot .btn-add{width:100%;padding:10px}
 .gcard .gfoot .btn-add-all{width:100%;white-space:normal;line-height:1.2}
+.gcard .gfoot .btn-quote{width:100%;white-space:normal;line-height:1.2}
 .gcard .gfoot .qtybox{width:100%;justify-content:center}
 .gcard .gfoot .qtybox input{flex:1;max-width:60px}
-.cell-actions{display:flex;flex-direction:row;gap:6px;align-items:center;flex-wrap:wrap}
+.cell-actions{display:flex;flex-direction:row;gap:6px;align-items:center;flex-wrap:nowrap}
 .btn-add-all{background:#fff;border:1px solid var(--cyan-500);color:var(--cyan-500);border-radius:var(--radius);
   padding:8px 12px;font-size:var(--font-size-caption);font-weight:600;cursor:pointer;white-space:nowrap}
 .btn-add-all:active{opacity:.7}
+.btn-quote{background:#646464;border:0;color:#fff;border-radius:var(--radius);
+  padding:8px 12px;font-size:var(--font-size-caption);font-weight:600;cursor:pointer;white-space:nowrap}
+.btn-quote:active{opacity:.7}
 table.cat{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;
   box-shadow:var(--shadow-card)}
 table.cat thead th{background:var(--cyan-50);text-align:left;font-size:var(--font-size-secondary);
   color:var(--mut);font-weight:700;padding:10px 12px;border-bottom:1px solid var(--border)}
+table.cat th:nth-child(1),table.cat th:nth-child(3),table.cat th:nth-child(4),table.cat th:nth-child(5),table.cat th:nth-child(6){width:1%;white-space:nowrap}
 table.cat thead th:nth-child(3),table.cat thead th:nth-child(4),table.cat thead th:nth-child(5){text-align:right}
 table.cat tbody td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:var(--font-size-body);vertical-align:middle}
 table.cat tbody tr:hover{background:var(--cyan-50)}
-.code{font-size:var(--font-size-secondary);color:var(--mut)}
+.code{font-size:var(--font-size-secondary);color:var(--mut);white-space:nowrap}
 .prod-row{display:flex;align-items:center;gap:10px}
 .prod-text{min-width:0}
 .prod-thumb{width:40px;height:40px;border-radius:6px;object-fit:cover;background:var(--bg);border:1px solid var(--border);flex:none}
@@ -157,17 +162,23 @@ td.inv{text-align:right}
 .qtybox{display:flex;align-items:center;gap:6px}
 .qtybox button{width:26px;height:26px;border-radius:var(--radius);border:1px solid var(--border-strong);background:var(--card);cursor:pointer;font-size:15px}
 .qtybox input{width:44px;text-align:center;border:1px solid var(--border-strong);border-radius:var(--radius);padding:4px 2px;font-size:16px}
-.btn-add{background:var(--lime);border:0;border-radius:var(--radius);padding:8px 16px;font-size:var(--font-size-secondary);
+.btn-add{background:var(--lime);border:0;border-radius:var(--radius);padding:8px 12px;font-size:var(--font-size-caption);
   font-weight:600;cursor:pointer;color:#fff;white-space:nowrap}
 .btn-add:active{opacity:.7}
 .empty{padding:40px;text-align:center;color:var(--mut)}
 
-.fab-stack{position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;z-index:30}
+.fab-stack{position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;z-index:30;flex-wrap:wrap;justify-content:flex-end}
 .cart-btn{background:var(--cyan-500);color:#fff;border:2px solid var(--cyan-500);border-radius:var(--radius-pill);
   padding:12px 20px;font-size:var(--font-size-body);font-weight:600;box-shadow:var(--shadow-dialog);
   cursor:pointer;display:flex;align-items:center;gap:8px}
 .cart-btn .cart-icon{width:20px;height:20px;flex-shrink:0}
 .cart-btn .badge{background:#fff;color:var(--cyan-500);border-radius:var(--radius-pill);min-width:22px;height:22px;
+  display:inline-flex;align-items:center;justify-content:center;font-size:var(--font-size-caption);padding:0 6px}
+.quote-btn{background:#646464;color:#fff;border:0;border-radius:var(--radius-pill);
+  padding:12px 20px;font-size:var(--font-size-body);font-weight:600;box-shadow:var(--shadow-dialog);
+  cursor:pointer;display:flex;align-items:center;gap:8px}
+.quote-btn .cart-icon{width:20px;height:20px;flex-shrink:0}
+.quote-btn .badge{background:#fff;color:#646464;border-radius:var(--radius-pill);min-width:22px;height:22px;
   display:inline-flex;align-items:center;justify-content:center;font-size:var(--font-size-caption);padding:0 6px}
 .cart-panel{position:fixed;top:0;right:-420px;width:400px;max-width:92vw;height:100%;background:var(--card);
   box-shadow:-4px 0 24px rgba(0,0,0,.12);z-index:40;transition:right .25s ease;display:flex;flex-direction:column}
@@ -262,7 +273,7 @@ td.inv{text-align:right}
   .gcard .gcode{font-size:10.5px}
   .gcard .gstat .gval{font-size:10.5px}
   .gcard .gstat .glabel{font-size:9px}
-  .gcard .gfoot .btn-add,.gcard .gfoot .btn-add-all{font-size:12px;padding:8px}
+  .gcard .gfoot .btn-add,.gcard .gfoot .btn-add-all,.gcard .gfoot .btn-quote{font-size:12px;padding:8px}
 }
 
 /* Celular en orientación horizontal: alto de pantalla reducido, se libera espacio vertical */
@@ -279,6 +290,7 @@ td.inv{text-align:right}
   .step-label{font-size:9.5px}
   .fab-stack{right:12px;bottom:12px;gap:8px}
   .cart-btn{padding:12px 16px}
+  .quote-btn{padding:12px 16px}
   .modal{padding:16px}
 }
 </style></head><body>
@@ -340,7 +352,16 @@ td.inv{text-align:right}
 <div class="catSidebarOverlay" id="catSidebarOverlay"></div>
 
 <div class="fab-stack">
+  <div class="quote-btn" id="quoteBtn"><svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h1"/></svg> Cotización <span class="badge" id="quoteCount">0</span></div>
   <div class="cart-btn" id="cartBtn"><svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Pedido <span class="badge" id="cartCount">0</span></div>
+</div>
+<div class="cart-panel" id="quotePanel">
+  <div class="cart-header"><h2>Cotización (pedido sugerido)</h2><button id="closeQuote">✕</button></div>
+  <div class="cart-items" id="quoteItems"><div class="cart-empty">Aún no has agregado productos a la cotización.</div></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="quoteTotal">$0.00</span></div>
+    <button class="btn-primary" id="btnGenerarSugerido" disabled>Generar pedido sugerido</button>
+  </div>
 </div>
 <div class="cart-panel" id="cartPanel">
   <div class="cart-header"><h2>Pedido actual</h2><button id="closeCart">✕</button></div>
@@ -366,6 +387,19 @@ td.inv{text-align:right}
     <div class="modal-actions">
       <button class="btn-cancel" id="btnCancelModal">Cancelar</button>
       <button class="btn-primary" id="btnGenerarPDF">Generar PDF</button>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="quoteModalOverlay">
+  <div class="modal">
+    <h3>Datos del cliente</h3>
+    <label>Nombre del cliente</label>
+    <input id="inpClienteNombre" placeholder="Nombre del cliente" autocomplete="off">
+    <label>Código</label>
+    <input id="inpClienteCodigo" placeholder="Código del cliente">
+    <div class="modal-actions">
+      <button class="btn-cancel" id="btnCancelQuoteModal">Cancelar</button>
+      <button class="btn-primary" id="btnGenerarSugeridoPDF">Generar PDF</button>
     </div>
   </div>
 </div>
@@ -992,6 +1026,7 @@ catSidebarOverlayEl.addEventListener('click', closeCatSidebar);
 // ---- Carrito ----
 // cart se indexa por posición en PRODUCTS (no por código: un mismo código puede repetirse en los datos de origen)
 let cart = {}; // idx -> {qty}
+let quoteCart = {}; // idx -> {qty} — carrito paralelo para "Pedido sugerido" (cotización)
 
 function getFiltered(){
   const out = [];
@@ -1022,6 +1057,17 @@ let viewMode = (window.innerWidth <= 767) ? 'cuadricula' : 'tabla'; // 'tabla' |
 
 function addAllControl(idx, disp){
   return `<button class="btn-add-all" data-idx="${idx}" title="Agrega todo el disponible de este producto">Agregar todo</button>`;
+}
+
+function quoteControlsHtml(idx){
+  const qty = quoteCart[idx] ? quoteCart[idx].qty : 0;
+  return qty > 0
+    ? `<div class="qtybox qtybox-quote">
+        <button data-act="dec" data-idx="${idx}">−</button>
+        <input type="text" inputmode="numeric" value="${qty}" data-idx="${idx}" class="qtyinput">
+        <button data-act="inc" data-idx="${idx}">+</button>
+       </div>`
+    : `<button class="btn-quote" data-idx="${idx}" title="Agregar a la cotización (pedido sugerido)">Cotizar</button>`;
 }
 
 const NOIMG_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>';
@@ -1057,7 +1103,7 @@ function rowHtml(idx){
     <td class="td-precio"><span class="precio-liq">${moneyPerUnit(precioUnit)}</span></td>
     <td class="td-precio-emp">${moneyPerPack(precioEmp)}${empaque > 1 ? `<span class="emp-note">(${fmtInt(empaque)} uds.)</span>` : ''}</td>
     <td class="inv">${fmtInt(disp)}</td>
-    <td><div class="cell-actions">${qtyControls}${addAllControl(idx, disp)}</div></td>
+    <td><div class="cell-actions">${qtyControls}${addAllControl(idx, disp)}${quoteControlsHtml(idx)}</div></td>
   </tr>`;
 }
 
@@ -1083,7 +1129,7 @@ function cardHtml(idx){
         <div class="gstat"><span class="gval">${moneyPerPack(precioEmp)}</span><span class="glabel">Empaque${empaque > 1 ? ` (${fmtInt(empaque)} uds.)` : ''}</span></div>
         <div class="gstat"><span class="gval">${fmtInt(disp)}</span><span class="glabel">Disponible</span></div>
       </div>
-      <div class="gfoot">${qtyControls}${addAllControl(idx, disp)}</div>
+      <div class="gfoot">${qtyControls}${addAllControl(idx, disp)}${quoteControlsHtml(idx)}</div>
     </div>
   </div>`;
 }
@@ -1164,6 +1210,19 @@ function setQty(idx, qty){
   refreshProductUI(idx);
 }
 
+function setQuoteQty(idx, qty){
+  const p = PRODUCTS[idx];
+  if (!p) return;
+  qty = Math.max(0, Math.floor(qty) || 0);
+  if (qty === 0){
+    delete quoteCart[idx];
+  } else {
+    quoteCart[idx] = { qty };
+  }
+  updateQuoteCartUI();
+  refreshProductUI(idx);
+}
+
 function refreshProductUI(idx){
   const row = tbody.querySelector(`tr[data-idx="${idx}"]`);
   if (row) row.outerHTML = rowHtml(idx);
@@ -1191,6 +1250,20 @@ function handleCatalogClick(e){
     toast('Agregado al pedido ✓');
     return;
   }
+  const quoteBtn = e.target.closest('.btn-quote');
+  if (quoteBtn){
+    setQuoteQty(quoteBtn.dataset.idx, 1);
+    toast('Agregado a la cotización ✓');
+    return;
+  }
+  const quoteStepBtn = e.target.closest('.qtybox-quote button[data-act]');
+  if (quoteStepBtn){
+    const idx = quoteStepBtn.dataset.idx;
+    const cur = quoteCart[idx] ? quoteCart[idx].qty : 0;
+    const next = quoteStepBtn.dataset.act === 'inc' ? cur + 1 : cur - 1;
+    setQuoteQty(idx, next);
+    return;
+  }
   const stepBtn = e.target.closest('button[data-act]');
   if (stepBtn){
     const idx = stepBtn.dataset.idx;
@@ -1200,7 +1273,10 @@ function handleCatalogClick(e){
   }
 }
 function handleCatalogChange(e){
-  if (e.target.classList.contains('qtyinput')){
+  if (!e.target.classList.contains('qtyinput')) return;
+  if (e.target.closest('.qtybox-quote')){
+    setQuoteQty(e.target.dataset.idx, parseInt(e.target.value, 10));
+  } else {
     setQty(e.target.dataset.idx, parseInt(e.target.value, 10));
   }
 }
@@ -1268,10 +1344,74 @@ $('#cartItems').addEventListener('change', e => {
   }
 });
 
+function quoteCartLines(){
+  return Object.keys(quoteCart).map(idx => {
+    const p = PRODUCTS[idx];
+    const qty = quoteCart[idx].qty;
+    const precio = p[5];
+    return { idx, codigo: p[0], desc: p[1], marca: p[2], precio, qty, subtotal: precio*qty };
+  });
+}
+
+function updateQuoteCartUI(){
+  const lines = quoteCartLines();
+  const count = lines.reduce((a,l) => a + l.qty, 0);
+  const total = lines.reduce((a,l) => a + l.subtotal, 0);
+  $('#quoteCount').textContent = count;
+  $('#quoteTotal').textContent = money(total);
+  $('#btnGenerarSugerido').disabled = lines.length === 0;
+
+  const itemsEl = $('#quoteItems');
+  if (lines.length === 0){
+    itemsEl.innerHTML = '<div class="cart-empty">Aún no has agregado productos a la cotización.</div>';
+  } else {
+  itemsEl.innerHTML = lines.map(l => `
+    <div class="cart-item">
+      <div class="ci-name">${l.desc}<span class="ci-code">${l.codigo}</span></div>
+      <div class="ci-right">
+        <div class="ci-top">
+          <span class="ci-price">${money(l.subtotal)}</span>
+          <button class="ci-delete" data-idx="${l.idx}" title="Quitar" aria-label="Quitar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+          </button>
+        </div>
+        <div class="qtybox">
+          <button data-act="dec" data-idx="${l.idx}">−</button>
+          <input type="text" inputmode="numeric" value="${l.qty}" data-idx="${l.idx}" class="qtyinput">
+          <button data-act="inc" data-idx="${l.idx}">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+  }
+}
+updateQuoteCartUI();
+
+$('#quoteItems').addEventListener('click', e => {
+  const delBtn = e.target.closest('.ci-delete');
+  if (delBtn){ setQuoteQty(delBtn.dataset.idx, 0); return; }
+  const stepBtn = e.target.closest('button[data-act]');
+  if (stepBtn){
+    const idx = stepBtn.dataset.idx;
+    const cur = quoteCart[idx] ? quoteCart[idx].qty : 0;
+    const next = stepBtn.dataset.act === 'inc' ? cur + 1 : cur - 1;
+    setQuoteQty(idx, next);
+  }
+});
+$('#quoteItems').addEventListener('change', e => {
+  if (e.target.classList.contains('qtyinput')){
+    setQuoteQty(e.target.dataset.idx, parseInt(e.target.value, 10));
+  }
+});
+
 // ---- Panel del carrito ----
 const cartPanel = $('#cartPanel');
 $('#cartBtn').addEventListener('click', () => cartPanel.classList.add('open'));
 $('#closeCart').addEventListener('click', () => cartPanel.classList.remove('open'));
+
+// ---- Panel de cotización (pedido sugerido) ----
+const quotePanel = $('#quotePanel');
+$('#quoteBtn').addEventListener('click', () => quotePanel.classList.add('open'));
+$('#closeQuote').addEventListener('click', () => quotePanel.classList.remove('open'));
 
 // ---- Modal de foto ampliada ----
 const photoOverlay = $('#photoOverlay');
@@ -1318,6 +1458,39 @@ $('#btnGenerarPDF').addEventListener('click', async () => {
   } finally {
     btnPdf.disabled = false;
     btnPdf.textContent = btnPdfTexto;
+  }
+});
+
+// ---- Modal de datos del cliente (cotización / pedido sugerido) ----
+const quoteModalOverlay = $('#quoteModalOverlay');
+$('#btnGenerarSugerido').addEventListener('click', () => {
+  quoteModalOverlay.classList.add('open');
+});
+$('#btnCancelQuoteModal').addEventListener('click', () => quoteModalOverlay.classList.remove('open'));
+
+const inpClienteNombreEl = $('#inpClienteNombre');
+const inpClienteCodigoEl = $('#inpClienteCodigo');
+
+$('#btnGenerarSugeridoPDF').addEventListener('click', async () => {
+  const nombreCliente = inpClienteNombreEl.value.trim();
+  const codigoCliente2 = inpClienteCodigoEl.value.trim();
+  if (!nombreCliente || !codigoCliente2){
+    alert('Por favor completa el nombre del cliente y el código.');
+    return;
+  }
+  const btnPdf2 = $('#btnGenerarSugeridoPDF');
+  const btnPdf2Texto = btnPdf2.textContent;
+  btnPdf2.disabled = true;
+  btnPdf2.textContent = 'Generando...';
+  try {
+    await generarPedidoSugeridoPDF(nombreCliente, codigoCliente2);
+    quoteModalOverlay.classList.remove('open');
+  } catch (err) {
+    console.error('Error generando el PDF de cotización:', err);
+    alert('Ocurrió un error generando el PDF. Por favor intenta de nuevo o contacta a soporte.');
+  } finally {
+    btnPdf2.disabled = false;
+    btnPdf2.textContent = btnPdf2Texto;
   }
 });
 
@@ -1436,6 +1609,9 @@ async function generarPDF(vendedor, zona){
         0: {cellWidth: wCodigo}, 2: {cellWidth: wCant, halign:'right'},
         3: {cellWidth: wPrecio, halign:'right'}, 4: {cellWidth: wSubtotal, halign:'right'}
       },
+      didParseCell: function(data){
+        if ([2,3,4].includes(data.column.index)) data.cell.styles.halign = 'right';
+      },
       margin: { top: 16, left: marginX, right: marginX, bottom: 18 },
       didDrawPage: drawPageFooter
     });
@@ -1462,6 +1638,155 @@ async function generarPDF(vendedor, zona){
   renderTable();
   cartPanel.classList.remove('open');
   toast('Pedido generado y descargado ✓');
+}
+
+async function generarPedidoSugeridoPDF(nombreCliente, codigoCliente){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const lines = quoteCartLines();
+  const now = new Date();
+  const fecha = now.toLocaleDateString('es-CR');
+  const hora = now.toLocaleTimeString('es-CR', { hour: '2-digit', minute: '2-digit', hour12: true });
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 14;
+  const rightX = pageW - marginX;
+  const BLUE = [0, 158, 227];
+
+  function nextCotizacionNumero(){
+    let n = parseInt(localStorage.getItem('febeca_cotizacion_seq') || '0', 10) + 1;
+    if (!Number.isFinite(n) || n < 1) n = 1;
+    localStorage.setItem('febeca_cotizacion_seq', String(n));
+    return String(n).padStart(4, '0');
+  }
+  const cotizacionNumero = nextCotizacionNumero();
+
+  function drawHeader(){
+    const logoW = 46, logoH = logoW * (719/2141);
+    doc.addImage(FEBECA_LOGO_PNG, 'PNG', marginX, 12, logoW, logoH);
+
+    doc.setFont(undefined, 'bold');
+    doc.setFontSize(20);
+    doc.setTextColor(20, 24, 33);
+    doc.text('Pedido sugerido', rightX, 20, { align: 'right' });
+
+    doc.setFont(undefined, 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(70, 75, 85);
+    doc.text('Nro. ' + cotizacionNumero, rightX, 27, { align: 'right' });
+    doc.text('Fecha: ' + fecha, rightX, 32, { align: 'right' });
+    doc.text('Hora: ' + hora, rightX, 37, { align: 'right' });
+  }
+  drawHeader();
+
+  const totalGeneral = lines.reduce((a,l) => a + l.subtotal, 0);
+
+  // Franja azul con el total, arriba
+  let y = 52;
+  doc.setFillColor(...BLUE);
+  doc.roundedRect(marginX, y, rightX - marginX, 22, 2, 2, 'F');
+  doc.setFont(undefined, 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(255, 255, 255);
+  doc.text('Total pedido sugerido', marginX + 6, y + 8);
+  doc.setFont(undefined, 'bold');
+  doc.setFontSize(18);
+  doc.text(money(totalGeneral), marginX + 6, y + 17);
+  y += 22 + 10;
+
+  // Datos del cliente
+  doc.setFont(undefined, 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(...BLUE);
+  doc.text('Datos del cliente', marginX, y);
+  y += 6;
+  doc.setFont(undefined, 'bold');
+  doc.setFontSize(12);
+  doc.setTextColor(20, 24, 33);
+  doc.text(nombreCliente, marginX, y);
+  y += 5;
+  doc.setFont(undefined, 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(40, 44, 52);
+  doc.text('Código: ' + codigoCliente, marginX, y);
+  y += 8;
+
+  // Tabla de productos, con miniatura por línea
+  const rows = lines.map(l => [
+    '',
+    l.desc + '\nCódigo: ' + l.codigo + (l.marca ? '\nMarca: ' + l.marca : ''),
+    String(l.qty), money(l.precio), money(l.subtotal)
+  ]);
+  const imgRows = lines.map(l => getPhotoSrc(l.codigo));
+  const imgColW = 20;
+
+  function drawContinuationHeaderSugerido(){
+    doc.setFont(undefined, 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(40, 44, 52);
+    doc.text('Pedido sugerido ' + cotizacionNumero + ' — ' + nombreCliente, marginX, 14);
+  }
+  function drawPageFooterSugerido(data){
+    if (data.pageNumber > 1) drawContinuationHeaderSugerido();
+    const footY = doc.internal.pageSize.getHeight() - 12;
+    doc.setDrawColor(222, 226, 230);
+    doc.setLineWidth(0.3);
+    doc.line(marginX, footY - 5, rightX, footY - 5);
+    doc.setFont(undefined, 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(140, 145, 155);
+    doc.text('Precios y cantidades sujetas a cambio sin previo aviso', pageW / 2, footY, { align: 'center' });
+  }
+
+  doc.autoTable({
+    startY: y,
+    head: [['Imagen', 'Artículo', 'Cantidad', 'Precio Unitario', 'Subtotal']],
+    body: rows,
+    theme: 'plain',
+    styles: { fontSize: 9, cellPadding: { top: 4, bottom: 4, left: 3, right: 3 }, lineWidth: { bottom: 0.2 }, lineColor: [222, 226, 230], minCellHeight: 20, valign: 'middle' },
+    headStyles: { fillColor: [240, 242, 245], textColor: [90, 95, 105], fontStyle: 'bold', lineWidth: 0, cellPadding: { top: 2.5, bottom: 2.5, left: 3, right: 3 }, minCellHeight: 0 },
+    columnStyles: {
+      0: { cellWidth: imgColW },
+      2: { cellWidth: 22, halign: 'right' },
+      3: { cellWidth: 32, halign: 'right' },
+      4: { cellWidth: 32, halign: 'right' }
+    },
+    didParseCell: function(data){
+      if ([2,3,4].includes(data.column.index)) data.cell.styles.halign = 'right';
+    },
+    margin: { top: 16, left: marginX, right: marginX, bottom: 18 },
+    didDrawCell: function(data){
+      if (data.column.index === 0 && data.cell.section === 'body'){
+        const src = imgRows[data.row.index];
+        if (src){
+          const pad = 2;
+          const size = Math.min(data.cell.width - pad * 2, data.cell.height - pad * 2);
+          const x = data.cell.x + (data.cell.width - size) / 2;
+          const yImg = data.cell.y + (data.cell.height - size) / 2;
+          try { doc.addImage(src, 'JPEG', x, yImg, size, size); } catch (e) { /* ignora fotos con formato inesperado */ }
+        }
+      }
+    },
+    didDrawPage: drawPageFooterSugerido
+  });
+
+  let nextY = doc.lastAutoTable.finalY + 10;
+  if (nextY + 14 > doc.internal.pageSize.getHeight() - 20){ doc.addPage(); nextY = 24; }
+  doc.setFillColor(...BLUE);
+  doc.roundedRect(marginX, nextY, rightX - marginX, 12, 1.5, 1.5, 'F');
+  doc.setFont(undefined, 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(255, 255, 255);
+  doc.text('Total $', marginX + 5, nextY + 8);
+  doc.text(money(totalGeneral), rightX - 5, nextY + 8, { align: 'right' });
+
+  const safeNombreCliente = nombreCliente.replace(/[^a-z0-9]+/gi, '_').slice(0, 40);
+  doc.save(`Pedido_sugerido_${cotizacionNumero}_${safeNombreCliente}.pdf`);
+
+  // Limpia la cotización tras generar el PDF
+  quoteCart = {};
+  updateQuoteCartUI();
+  quotePanel.classList.remove('open');
+  toast('Pedido sugerido generado y descargado ✓');
 }
 
 // ---- Catálogo en vivo desde Google Sheets ----
