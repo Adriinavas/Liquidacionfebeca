@@ -1530,14 +1530,24 @@ async function urlToDataURL(url){
   }
 }
 
+// Google Drive no permite leer los bytes de sus imágenes desde otro sitio
+// (CORS) — solo permite mostrarlas como <img>, no descargarlas por código,
+// que es justo lo que jsPDF necesita para incrustarlas. Se usa un proxy de
+// imágenes gratuito (images.weserv.nl) que sí entrega esos bytes con los
+// permisos correctos.
+function toProxiedImageUrl(url){
+  const sinProtocolo = url.replace(/^https?:\/\//, '');
+  return 'https://images.weserv.nl/?url=' + encodeURIComponent(sinProtocolo);
+}
+
 // Resuelve la foto de un producto para el PDF: si ya está en base64 (foto
 // incrustada en el sitio) se usa tal cual; si es una URL de Drive, se
-// descarga y convierte antes de dársela a jsPDF.
+// descarga (vía el proxy) y convierte antes de dársela a jsPDF.
 async function getPhotoForPDF(codigo){
   const src = getPhotoSrc(codigo);
   if (!src) return null;
   if (src.startsWith('data:')) return src;
-  return await urlToDataURL(src);
+  return await urlToDataURL(toProxiedImageUrl(src));
 }
 
 async function generarPDF(vendedor, zona){
